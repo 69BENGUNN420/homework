@@ -1,33 +1,50 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 int main ()
 {
-
-int x,p,y;
-cout << "Type a number: ";
-cin >> x;
-cout << "Type a number: "; // Type a number and press enter
-cin >> p; // Get user input from the keyboard
-cout << "Type a number: "; // Type a number and press enter
-cin >> y; // Get user input from the keyboard
-int biggest;
-
-if (x>=y){
-	biggest = x;
+	int const N =5;
+	int const M =5;
+	int a[N][M];
+	int B[N][M];
+	int C[N][M];
+	
+	time_t t;
+	srand((unsigned) time(&t));
+	int randNum;
+	
+	for (int i=0;i<N;i++){
+		for(int f=0;f<M;f++){
+			randNum = rand()%2;
+			a[i][f]=randNum;
+			cout << a[i][f]<< " ";
+		}
+		cout << endl;
+	}
+	cout << "****************"<<endl;
+	for (int i=0;i<N;i++){
+		for(int f=0;f<M;f++){
+			randNum = rand()%2;
+			B[i][f]=randNum;
+			cout << B[i][f]<< " ";
+		}
+		cout << endl;
+	}
+	for (int i=0;i<N;i++){
+		for(int f=0;f<M;f++){
+			C[i][f]=a[i][f]+B[i][f];
+		}
+	}	
+	cout << "****************"<<endl;
+	for (int i=0;i<N;i++){
+		for(int f=0;f<M;f++){
+			cout << C[i][f]<< " ";
+		}
+		cout << endl;
+	}
+	
 }
 
-else if (y>=x) {
-	biggest = y;
-}
 
-else if (p>=x) {
-	biggest = p;
-} 
-
-else if (p>=y){
-	biggest = p;
-}
-cout << "Biggest number : " << biggest;
-
-}

@@ -1,22 +1,42 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 int main ()
 {
-
-int x; 
-int p;
-int y;
-cout << "Type a number: ";
-cin >> x;
-cout << "Type a power: "; // Type a number and press enter
-cin >> p; // Get user input from the keyboard
-y=x;
-//46%10 = 6
-//23/10 = 2
-for (int i=1; i < p; i++){
-	x=x*y;
+	int const N =5;
+	int const M =5;
+	int a[N][M];
+	int b[M];
+	
+	time_t t;
+	srand((unsigned) time(&t));
+	int randNum;
+	
+	for (int i=0;i<N;i++){
+		for(int f=0;f<M;f++){
+			randNum = rand()%3;
+			a[i][f]=randNum;
+			cout << a[i][f]<< " ";
+		}
+		cout << endl;
+	}
+	int max=0;
+	for (int i=0;i<N;i++){
+		for(int f=0;f<M;f++){
+			if (max < a[i][f]){
+				max = a[i][f];
+			}
+		}
+		b[i]=max;
+		max=0;
+	}	
+	cout << "****************"<<endl;
+	for(int i=0;i<N;i++){
+		cout << b[i]<< " ";		
+	}
+	
 }
 
-cout << "Your number is: " << x; // Display the input value 
-}
+
